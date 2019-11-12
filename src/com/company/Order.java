@@ -1,5 +1,7 @@
 package com.company;
-import java.util.*;
+
+
+import java.util.Scanner;
 
 public class Order {
 /*
@@ -17,7 +19,9 @@ public class Order {
         */
 
     public static void help() {
-        System.out.println("HELP ....");
+            System.out.println("Step 1 to");
+            System.out.println("Step 2 to exit the game ");
+            System.out.println("Step 0 for help ....");
 
     }
     
@@ -38,7 +42,9 @@ public class Order {
         if ( choice.equals("1") ){
             return 1;
         }
-
+        if (choice.equals("2")){
+            return 2;
+        }
         return -1;
 
     }

@@ -17,25 +17,34 @@ Réalisation d'un diagramme de classe de l'application
 Archivage sous Git du livrable de la story (code + diagramme de classe)
  */
 
-public class archetype_default {
+public class Character {
 
     private String name;
     private int damage;
-    private int healPoint;
-    private int initiative;
+    private int healPoint; // point de vie
+    private int initiative; // l'ordre de passage des personnages
 
     public int getDamage (){
         return this.damage;
     }
-    public String toString() {
-        /*
-        System.out.println(this.name);
-        System.out.println(this.damage);
-        System.out.println(this.healPoint);
-        System.out.println(this.initiative);
-
-         */
-        return "???";
+    public int getHealPoint(){
+        return this.healPoint;
     }
+    public int getInitiative(){
+        return this.initiative;
+    }
+    public String toString(String name, int initiative) {
+    
+        return name;
+        
+    }
+    public String toString(String name){
+        return "....";
+    }
+
+    public String toString() {
+        return "OOOO";
+    }
+
 
 }
