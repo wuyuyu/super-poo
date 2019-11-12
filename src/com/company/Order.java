@@ -38,8 +38,10 @@ public class Order {
         if ( choice.equals("1") ){
             return 1;
         }
-
+        help();
+        System.out.println ("liste de l'ensemble des commandes à venir");
         return -1;
+
 
     }
 
