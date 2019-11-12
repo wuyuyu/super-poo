@@ -20,13 +20,7 @@ public class Order {
         System.out.println("HELP ....");
 
     }
-    public static void exit() {
-
-
-    }
-    public static void invalid() {
-        
-    }
+    
 
     public static int getUserChoice(){
 
