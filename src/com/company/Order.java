@@ -1,4 +1,5 @@
 package com.company;
+import java.util.*;
 
 public class Order {
 /*
@@ -15,17 +16,37 @@ public class Order {
     Archivage sous Git du livrable de la story (code + diagramme de classe)
         */
 
-    public static help {
-        System.out.println();
+    public static void help() {
+        System.out.println("HELP ....");
 
     }
-    public static exit {
+    public static void exit() {
 
 
     }
-    public static invalid{
+    public static void invalid() {
         
     }
 
+    public static int getUserChoice(){
+
+        // affichez un message
+        // instancier le scanner
+        // lire la ligne de l'user
+
+        Scanner sc = new Scanner(System.in);
+        String choice = sc.next();
+
+        // tester la valezur entree par le user
+        // si elle est correcte on renvoie la valeur (int)
+        // si elle est incorrecte on renvoie -1
+
+        if ( choice.equals("1") ){
+            return 1;
+        }
+
+        return -1;
+
+    }
 
 }

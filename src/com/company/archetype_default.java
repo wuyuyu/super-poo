@@ -24,14 +24,18 @@ public class archetype_default {
     private int healPoint;
     private int initiative;
 
-    public int getDamage {
+    public int getDamage (){
         return this.damage;
     }
-    public String toString{
+    public String toString() {
+        /*
         System.out.println(this.name);
         System.out.println(this.damage);
         System.out.println(this.healPoint);
         System.out.println(this.initiative);
+
+         */
+        return "???";
     }
 
 }
