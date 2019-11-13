@@ -19,7 +19,7 @@ public class Order {
         */
 
     public static void help() {
-            System.out.println("Step 1 to display characters");
+            System.out.println("Step 1 to display characters"); // creer et afficher un personnage
             System.out.println("Step 2 to exit the game ");
 
             System.out.println("Step 0 for help ....");
@@ -60,7 +60,8 @@ public class Order {
         }
         if(cmdNumber == 1){
             // display characters
-            // TODO
+
+
 
         }
 
