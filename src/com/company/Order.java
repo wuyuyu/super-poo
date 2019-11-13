@@ -19,19 +19,20 @@ public class Order {
         */
 
     public static void help() {
-            System.out.println("Step 1 to");
+            System.out.println("Step 1 to display characters");
             System.out.println("Step 2 to exit the game ");
+
             System.out.println("Step 0 for help ....");
 
     }
     
-
     public static int getUserChoice(){
 
         // affichez un message
         // instancier le scanner
         // lire la ligne de l'user
 
+        System.out.println("Entrez une commande : ");
         Scanner sc = new Scanner(System.in);
         String choice = sc.next();
 
@@ -39,6 +40,9 @@ public class Order {
         // si elle est correcte on renvoie la valeur (int)
         // si elle est incorrecte on renvoie -1
 
+        if ( choice.equals("0") ){
+            return 0;
+        }
         if ( choice.equals("1") ){
             return 1;
         }
@@ -48,5 +52,19 @@ public class Order {
         return -1;
 
     }
+
+    public static void processCmd(int cmdNumber){
+
+        if(cmdNumber == 0){
+            Order.help();
+        }
+        if(cmdNumber == 1){
+            // display characters
+            // TODO
+
+        }
+
+    }
+
 
 }

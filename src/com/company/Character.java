@@ -24,6 +24,29 @@ public class Character {
     private int healPoint; // point de vie
     private int initiative; // l'ordre de passage des personnages
 
+    public Character(String n, int d, int hp, int init){
+        this.name = n;
+        this.damage = d;
+        this.healPoint = hp;
+        this.initiative = init;
+    }
+
+    // methode public pour blesser le personnage: prendre en parametre les dégats et retourner le HP restant.
+    public int hurtCharacter(int hurt){
+        hurt = this.damage;
+        this.healPoint = this.healPoint - hurt;
+        return this.healPoint;
+    }
+
+
+    //methode pour savoir le personnge est en vie
+    private boolean isAlive (){
+        if(healPoint <= 0){
+            return false;
+        }
+        return true;
+    }
+
     public int getDamage (){
         return this.damage;
     }
@@ -33,17 +56,11 @@ public class Character {
     public int getInitiative(){
         return this.initiative;
     }
-    public String toString(String name, int initiative) {
-    
-        return name;
-        
-    }
-    public String toString(String name){
-        return "....";
-    }
 
+
+// La classe surcharge la méthode toString utilisée en Java pour afficher les informations du personnage
     public String toString() {
-        return "OOOO";
+        return "Name: " + this.name + ", HP:" +this.healPoint + ", initiative:"  +this.initiative;
     }
 
 
