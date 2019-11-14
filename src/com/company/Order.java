@@ -107,7 +107,7 @@ public class Order {
 
 
 
-    // ici creer une liste pour stocker les personnages créés
+    /* ici creer une liste pour stocker les personnages créés
     public static List<Character> ListCharacterPlayer (){
         List<Character> listCP;
         listCP = new ArrayList<>();
@@ -115,6 +115,8 @@ public class Order {
         listCP.add( Order.createCharacter());
         return listCP;
     }
+    */
+
 
 
     // ici creer une méthode pour afficher tous les personnage créés(numéros des personnages affichés.
@@ -134,11 +136,11 @@ public class Order {
             Order.help();
         }
         if(cmdNumber == 1){
-            Order.createCharacter();
+            listCP.add(Order.createCharacter());
         }
         if(cmdNumber == 2){
             // display characters
-            Order.displayAllCharacters(listCP);
+            Order.displayAllCharacters (listCP);
         }
 
     }
