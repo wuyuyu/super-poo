@@ -1,6 +1,8 @@
 package com.company;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Order {
@@ -18,11 +20,14 @@ public class Order {
     Archivage sous Git du livrable de la story (code + diagramme de classe)
         */
 
+    // this method is to list the menu:
     public static void help() {
-            System.out.println("Step 1 to display characters"); // creer et afficher un personnage
-            System.out.println("Step 2 to exit the game ");
+        System.out.println("MENU : ");
+        System.out.println("Step 1 to display characters"); // creer et afficher un personnage
+        System.out.println("Step 2 to exit the game ");
+        System.out.println("Step 3 for create your character.");
 
-            System.out.println("Step 0 for help ....");
+        System.out.println("Step 0 for help ....");
 
     }
     
@@ -49,20 +54,83 @@ public class Order {
         if (choice.equals("2")){
             return 2;
         }
+        if (choice.equals("3")){
+            return 3;
+        }
+        if (choice.equals("4")){
+            return 4;
+        }
+        if (choice.equals("5")){
+            return 5;
+        }
+
         return -1;
 
     }
+    public static void displayAllCharacters (List<Character> listCP){
+        int i;
+        for (i = 0; i < listCP.size() ; i++) {
+            System.out.println("Index of the character : " + i);
+            System.out.println(listCP.get(i));
+        }
+    }
+    public static Character createCharacter () {
+        // enter and get the 4 "stats"
 
-    public static void processCmd(int cmdNumber){
+        //  enter and get the name of the character
+        System.out.println("Enter the name of your character : ");
+        Scanner sc = new Scanner(System.in);
+        String nameCharacter = sc.next();
+
+        // enter and get the HP value of the character
+        System.out.println("Enter the healpoint of your character : ");
+        Scanner scan = new Scanner(System.in);
+        String healPointCharacter = scan.next();
+        int hpCharacter = Integer.parseInt(healPointCharacter);
+
+        // get the power value
+        System.out.println("Enter the power of your character : ");
+        Scanner sca = new Scanner(System.in);
+        String powerCharacter = sca.next();
+        int pcCharacter = Integer.parseInt(powerCharacter);
+
+
+        // get the initiative (turn order)
+        System.out.println("Enter the initiative of your character : ");
+        Scanner scann = new Scanner(System.in);
+        String initiativeCharacter = scann.next();
+        int iniCharacter = Integer.parseInt(initiativeCharacter);
+
+        Character characterPlayer = new Character(nameCharacter, pcCharacter, hpCharacter, iniCharacter);
+        System.out.println("Your character has been created with success!");
+        System.out.println(characterPlayer);
+
+        return characterPlayer;
+    }
+
+    public static void ListCharacterPlayer (Character characterPlayer){
+        List<Character> listCP;
+        listCP = new ArrayList<>();
+
+        listCP.add(characterPlayer);
+    }
+
+
+
+
+
+    public static void processCmd(int cmdNumber, List<Character> listCP){
 
         if(cmdNumber == 0){
             Order.help();
         }
         if(cmdNumber == 1){
             // display characters
+            Order.displayAllCharacters(listCP);
+        }
 
-
-
+        if(cmdNumber == 3){
+            Order.createCharacter();
         }
 
     }
