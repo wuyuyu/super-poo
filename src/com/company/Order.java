@@ -26,6 +26,7 @@ public class Order {
         System.out.println("Step 1 to create your character."); // creer et afficher un personnage
         System.out.println("Step 2 to display characters.");
         System.out.println("Step 3 to choice a character for list his details. ");
+        System.out.println("Step 4 to start fight between 2 characters");
         System.out.println("Step 9 to exit the game. ");
         System.out.println("Step 0 for help ....");
 
@@ -39,33 +40,24 @@ public class Order {
 
         System.out.println("Entrez une commande : ");
         Scanner sc = new Scanner(System.in);
-        String choice = sc.next();
 
-        // tester la valezur entree par le user
+        int choice;
+
+        try {
+            choice = sc.nextInt();
+        }
+        catch(Exception ex){
+            choice = -1;
+        }
+
+        if (choice < 0){
+            choice = -1;
+        }
+        return choice;
+
+        // tester la valeur entree par le user
         // si elle est correcte on renvoie la valeur (int)
         // si elle est incorrecte on renvoie -1
-
-        if ( choice.equals("0") ){
-            return 0;
-        }
-        if ( choice.equals("1") ){
-            return 1;
-        }
-        if (choice.equals("2")){
-            return 2;
-        }
-        if (choice.equals("3")){
-            return 3;
-        }
-        if (choice.equals("4")){
-            return 4;
-        }
-        if (choice.equals("5")){
-            return 5;
-        }
-
-        return -1;
-
     }
 
 
@@ -129,6 +121,14 @@ public class Order {
         }
     }
 
+
+    public static void displayOneCharacter (List<Character> listCP){
+        System.out.println("enter the index of your character : ");
+        int ch = getUserChoice();
+        System.out.println(listCP.get(ch));
+
+    }
+
     // ici une fonction pour faire fonctionner différents commandes
     public static void processCmd(int cmdNumber, List<Character> listCP){
 
@@ -141,6 +141,12 @@ public class Order {
         if(cmdNumber == 2){
             // display characters
             Order.displayAllCharacters (listCP);
+        }
+        if (cmdNumber ==3){
+            Order.displayOneCharacter(listCP);
+        }
+        if (cmdNumber ==4){
+            // fight
         }
 
     }

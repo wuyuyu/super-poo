@@ -25,6 +25,6 @@ public class Main {
                 Order.processCmd( ch, listCharacter );
             }
         }
-        while (ch != 2);
+        while (ch != 9);
     }
 }
