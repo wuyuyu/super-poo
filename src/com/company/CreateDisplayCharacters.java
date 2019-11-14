@@ -24,17 +24,3 @@ public class CreateDisplayCharacters {
         Character defaut = new Character("antoine", 100, 1000, 0);
     }
 }
-
-
-    /* private String
-    //public void listCharaters(){
-    // int i = 0;
-    //while (i < number, i++){
-    //System.out.println(Character);
-    //}
-        for (int numberCharaters = 1; numberCharaters <= 10; numberCharaters++) {
-
-            return numberCharaters;
-        }
-
-         */

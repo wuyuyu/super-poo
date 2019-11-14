@@ -23,10 +23,10 @@ public class Order {
     // this method is to list the menu:
     public static void help() {
         System.out.println("MENU : ");
-        System.out.println("Step 1 to display characters"); // creer et afficher un personnage
-        System.out.println("Step 2 to exit the game ");
-        System.out.println("Step 3 for create your character.");
-
+        System.out.println("Step 1 to create your character."); // creer et afficher un personnage
+        System.out.println("Step 2 to display characters.");
+        System.out.println("Step 3 to choice a character for list his details. ");
+        System.out.println("Step 9 to exit the game. ");
         System.out.println("Step 0 for help ....");
 
     }
@@ -67,13 +67,10 @@ public class Order {
         return -1;
 
     }
-    public static void displayAllCharacters (List<Character> listCP){
-        int i;
-        for (i = 0; i < listCP.size() ; i++) {
-            System.out.println("Index of the character : " + i);
-            System.out.println(listCP.get(i));
-        }
-    }
+
+
+
+    // ici une méthode pour la creation d'un personnage avec les carecaristique par défaut
     public static Character createCharacter () {
         // enter and get the 4 "stats"
 
@@ -108,29 +105,40 @@ public class Order {
         return characterPlayer;
     }
 
-    public static void ListCharacterPlayer (Character characterPlayer){
+
+
+    // ici creer une liste pour stocker les personnages créés
+    public static List<Character> ListCharacterPlayer (){
         List<Character> listCP;
         listCP = new ArrayList<>();
 
-        listCP.add(characterPlayer);
+        listCP.add( Order.createCharacter());
+        return listCP;
     }
 
 
+    // ici creer une méthode pour afficher tous les personnage créés(numéros des personnages affichés.
+    public static void displayAllCharacters (List<Character> listCP){
 
+        int i;
+        for (i = 0; i < listCP.size() ; i++) {
+            System.out.println("Index of the character : " + i);
+            System.out.println(listCP.get(i));
+        }
+    }
 
-
+    // ici une fonction pour faire fonctionner différents commandes
     public static void processCmd(int cmdNumber, List<Character> listCP){
 
         if(cmdNumber == 0){
             Order.help();
         }
         if(cmdNumber == 1){
+            Order.createCharacter();
+        }
+        if(cmdNumber == 2){
             // display characters
             Order.displayAllCharacters(listCP);
-        }
-
-        if(cmdNumber == 3){
-            Order.createCharacter();
         }
 
     }

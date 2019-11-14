@@ -6,38 +6,15 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Application has started");
-
-
-
-
-
-
-
-
-        //CreateDisplayCharacters voleur1 = new CreateDisplayCharacters();
-
-
-
         List<Character> listCharacter;
         listCharacter = new ArrayList<>();
 
+        /* une autre façon de parcourir la liste afin d'afficher tous les éléments de la liste
 
-
-
-
-
-        /*
         for( Character c : listCharacter ){
             System.out.println(c);
         }
-        //*/
-
-
-
-
-                //System.out.println(listCharacter + Index_0);
-
-
+        */
 
         Order.help();
         int ch;
@@ -46,12 +23,8 @@ public class Main {
             // if command is valid, process it
             if( ch != -1 ){
                 Order.processCmd( ch, listCharacter );
-                Order.ListCharacterPlayer(Order.createCharacter());
             }
         }
         while (ch != 2);
-
     }
-
-
 }
