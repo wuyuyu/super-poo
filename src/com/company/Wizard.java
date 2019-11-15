@@ -2,7 +2,11 @@ package com.company;
 
 public class Wizard extends Character {
     /**
+     *Les dégâts magiques sont rajoutés aux dégâts de base, mais
      *
+     *
+     * ces dégâts magiques sont réduits de moitié après chaque attaque.
+     * Les dégâts magiques sont réinitialisés à leur valeur d'origine au début de chaque combat
      */
     private int wizardDamage;
     // manque de propriéte
@@ -30,8 +34,26 @@ public class Wizard extends Character {
 
 
     public int getDamage(){
-        int trueDamage = super.getDamage() + this.wizardDamage;
+        int wD;
+        wD = getWizardDamage();
+        int trueDamage = super.getDamage() + wD;
         return trueDamage;
+
+        /*
+        boolean gameOn = true;
+
+        int wD;
+        wD = this.wizardDamage;
+        int trueDamage = super.getDamage() + wD;
+        while (gameOn = true){
+            wD = Math.round(wD / 2);
+        }
+        if (Character.getIsAlive() == false){
+            gameOn = false;
+        }
+            return trueDamage;
+
+         */
     }
 
 
