@@ -10,11 +10,11 @@ public class Thief extends Character{
 
 
     /**
-     *
-     * @param n
-     * @param d
-     * @param hp
-     * @param init
+     *Create a character thief who inherits the class Character
+     * @param n name of the thief
+     * @param d damage of the thief
+     * @param hp heal points of the thief
+     * @param init initiative of the thief
      * @param dod floating value for the dodge proba between 0 and 1.0. If it exceeds 1.0 it will be saturated to 1.0
      */
     public Thief(String n, int d, int hp, int init, float dod) {
@@ -28,6 +28,11 @@ public class Thief extends Character{
     // créer une probab pour esquyiver totalement une attaque.
     // getEnnemyDamage pour passer en paramettre
 
+    /**
+     * The dodge probability of the thief
+     * @param hurt the damage I suffered from the opponent
+     * @return if the thief dodge or not
+     */
     public int hurtCharacter(int hurt) {
         // lance un dé : regarde si le lancer est plus grand/petit ue la proba d'(esquive du voleur
         if (Math.random() >=  dodge){
@@ -38,8 +43,8 @@ public class Thief extends Character{
 
 
     /**
-     * Un voleur possède une probabilité d'appliquer des dégâts critiques. Dans ce cas, il double les dégâts. Les dégâts critiques ne peuvent pas être appliqués sur 2 attaques consécutives
-     * @return
+     * A thief has a probability of give a critical damage, if he used this he twice his damage. That can't be used two times in a row
+     * @return value of the damage with the critical hit
      */
     public int getDamage(){
         if (Math.random()*100 >= super.getDamage()) {
@@ -59,6 +64,10 @@ public class Thief extends Character{
         return this.criticalDamage;
     }
 
+    /**
+     * The class overrides the toString method used in Java to display character information
+      * @return
+     */
     public String toString(){
         return super.toString() + ", dodge: " + this.dodge;
     }

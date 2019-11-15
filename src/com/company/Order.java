@@ -23,6 +23,10 @@ public class Order {
  */
 
     // this method is to list the menu:
+
+    /**
+     * The command list that the user will be able to type in the command prompt
+     */
     public static void help() {
         System.out.println("MENU : ");
         System.out.println("Step 1 to create a default character."); // create and display a character
@@ -37,7 +41,11 @@ public class Order {
         System.out.println("Step 0 for help ....");
 
     }
-    
+
+    /**
+     *
+     * @return the command that the user typed
+     */
     public static int getUserChoice(){
 
         // affichez un message
@@ -67,27 +75,27 @@ public class Order {
 
 
     // create a method to create a character with the default characteristics
+
+    /**
+     * For create a default character with all the statistic
+     * @return the default character
+     */
     public static Character createCharacter () {
-        // enter and get the 4 "stats"
-        //  enter and get the name of the character
+
         System.out.println("Enter the name of your character : ");
         Scanner sc = new Scanner(System.in);
         String nameCharacter = sc.next();
 
-        // enter and get the HP value of the character
         System.out.println("Enter the healpoint of your character : ");
         Scanner scan = new Scanner(System.in);
         String healPointCharacter = scan.next();
         int hpCharacter = Integer.parseInt(healPointCharacter);
 
-        // get the power value
         System.out.println("Enter the power of your character : ");
         Scanner sca = new Scanner(System.in);
         String powerCharacter = sca.next();
         int pcCharacter = Integer.parseInt(powerCharacter);
 
-
-        // get the initiative (turn order)
         System.out.println("Enter the initiative of your character : ");
         Scanner scann = new Scanner(System.in);
         String initiativeCharacter = scann.next();
@@ -100,7 +108,10 @@ public class Order {
         return characterPlayer;
     }
 
-    // create a method to display all characters created
+    /**
+     * For display all the character who has been created
+     * @param listCP the list where we stocked all the created character
+     */
     public static void displayAllCharacters (List<Character> listCP){
 
         int i;
@@ -108,24 +119,23 @@ public class Order {
             System.out.println("Index of the character : " + i);
             System.out.println(listCP.get(i));
         }
-        /*
-        another way to scroll through the list to display all items in the list
-
-        for( Character c : listCharacter ){
-            System.out.println(c);
-        }
-        */
 
     }
 
-
+    /**
+     * For display one character who has been created with indicating his index
+     * @param listCP the list where we stocked all the created character
+     */
     public static void displayOneCharacter (List<Character> listCP){
         System.out.println("enter the index of your character : ");
         int ch = getUserChoice();
         System.out.println(listCP.get(ch));
     }
 
-
+    /**
+     * For delete a character from the list
+     * @param listCP the list where we stocked all the created character
+     */
     public static void removeOneCharacter (List<Character> listCP){
         System.out.println("enter the index of your character : ");
         int ch = getUserChoice();
@@ -138,7 +148,10 @@ public class Order {
         }
     }
 
-
+    /**
+     * For create a Warrior character with all the default statistic and the warrior stat
+     * @return return the warrior character
+     */
     static public Warrior createWarrior (){
         System.out.println("Enter the name of your warrior : ");
         Scanner sc = new Scanner(System.in);
@@ -174,6 +187,10 @@ public class Order {
         return createWarrior;
     }
 
+    /**
+     * For create a wizard character with all the default character statistics and the wizard stat
+     * @return rhe wizard character
+     */
     static public Wizard createWizard (){
         System.out.println("Enter the name of your wizard : ");
         Scanner sc = new Scanner(System.in);
@@ -209,7 +226,11 @@ public class Order {
         return createWizard;
     }
 
-       static public Thief createThief () {
+    /**
+     * For create a thief character with all the statistic
+     * @return the thief character
+     */
+    static public Thief createThief () {
            System.out.println("Enter the name of your thief : ");
            Scanner sc = new Scanner(System.in);
            String nameCharacter = sc.next();
@@ -311,8 +332,13 @@ public class Order {
     }
 
 
-    // here a function to make different commands work
 
+
+    /**
+     * orders made according to the user's request
+     * @param cmdNumber the index of the command list
+     * @param listCP the list where we stocked all the created character
+     */
     public static void processCmd(int cmdNumber, List<Character> listCP){
 
         if(cmdNumber == 0){
