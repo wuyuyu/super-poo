@@ -13,12 +13,11 @@ public class Wizard extends Character {
         return this.wizardDamage;
     }
 
-    // à revoir probleme de parametre
-    public int trueDamage () {
+
+    public int getDamage(){
         int trueDamage = super.getDamage() + this.wizardDamage;
         return trueDamage;
     }
-
 
 
     public String toString (){
