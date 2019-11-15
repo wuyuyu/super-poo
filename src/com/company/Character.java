@@ -2,27 +2,21 @@ package com.company;
 
 
 /*
-story 3
-
-En  tant qu'étudiant de la Coding Factory,
-Je veux créer une première classe non statique
-Afin de commencer à mettre en pratique les bases de la POO
-Critères d'acceptation :
-Création d'une classe pour l'archétype par défaut
-La classe possède des attributs privés pour le nom, les dégâts, les points de vie et l'initiative
-La classe possède des méthodes publiques pour récupérer les valeurs des attributs (getters), pour récupérer la force de frappe (dégâts), blesser le personnage (il reçoit des dégâts)
-La classe surcharge la méthode toString utilisée en Java pour afficher les informations du personnage
-Tous les éléments du code et les commentaires sont en anglais Documentation du projet dans le code (JavaDoc)
-Réalisation d'un diagramme de classe de l'application
-Archivage sous Git du livrable de la story (code + diagramme de classe)
+Creating a class for the default archetype
+The class has private attributes for name, damage, health, and initiative
+The class has public methods to retrieve the values ​​of the attributes (getters), to recover the strike force (damage), to hurt the character (it receives damages)
+The class overrides the toString method used in Java to display character information
+All code elements and comments are in English Project documentation in code (JavaDoc)
+Realization of a class diagram of the application
+Archiving under Git of the deliverable of the story (code + class diagram)
  */
 
 public class Character {
 
     private String name;
     private int damage;
-    private int healPoint; // point de vie
-    private int initiative; // l'ordre de passage des personnages
+    private int healPoint;
+    private int initiative; //the order of passage of the characters
 
     public Character(String n, int d, int hp, int init){
         this.name = n;
@@ -31,15 +25,15 @@ public class Character {
         this.initiative = init;
     }
 
-    // methode public pour blesser le personnage: prendre en parametre les dégats et retourner le HP restant.
+    // public method to hurt the character: take in damage and return the remaining HP.
     public int hurtCharacter(int hurt){
-        hurt = this.damage;
-        this.healPoint = this.healPoint - hurt;
-        return this.healPoint;
+       if(hurt>0){
+           this.healPoint = this.healPoint - hurt;
+
+       }
+            return this.healPoint;
     }
-
-
-    //methode pour savoir le personnge est en vie
+    // method to know that the character is alive
     private boolean isAlive (){
         if(healPoint <= 0){
             return false;
@@ -51,16 +45,21 @@ public class Character {
         return this.damage;
     }
     public int getHealPoint(){
+
         return this.healPoint;
     }
     public int getInitiative(){
+
         return this.initiative;
     }
 
+    public String getName(){
+        return this.name;
+    }
 
-// La classe surcharge la méthode toString utilisée en Java pour afficher les informations du personnage
+    // The class overrides the toString method used in Java to display character information
     public String toString() {
-        return "Name: " + this.name + ", HP:" +this.healPoint + ", initiative:"  +this.initiative;
+        return "Name: " + this.name + ", HP:" +this.healPoint + ", initiative:"  +this.initiative+ ", Damage:"+ this.damage;
     }
 
 

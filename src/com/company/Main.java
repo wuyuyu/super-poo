@@ -9,14 +9,17 @@ public class Main {
         List<Character> listCharacter;
         listCharacter = new ArrayList<>();
 
-        /* une autre façon de parcourir la liste afin d'afficher tous les éléments de la liste
+        Order.help();
 
-        for( Character c : listCharacter ){
-            System.out.println(c);
+        /*
+        try {
+            Thread.sleep(3000);
+        }
+        catch(Exception e){
+
         }
         */
 
-        Order.help();
         int ch;
         do{
             ch = Order.getUserChoice();

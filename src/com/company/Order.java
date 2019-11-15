@@ -6,27 +6,31 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Order {
+
+
+
+
 /*
-    Story #2 : Menu de commandes
-    En tant qu'étudiant de la Coding Factory,
-    Je veux créer un menu en ligne de commande Afin de pouvoir contrôler mon application
-    Critères d'acceptation :
-    Création d'une classe avec des méthodes statiques pour la gestion de commandes
-    Ajout d'une commande d'aide (qui affiche les commandes possibles)
-    Ajout d'une commande pour quitter l'application
-    Affichage de la liste des commandes si la commande tapée est invalide
-    Tous les éléments du code et les commentaires sont en anglais Documentation du projet dans le code (JavaDoc)
-    Réalisation d'un diagramme de classe de l'application
-    Archivage sous Git du livrable de la story (code + diagramme de classe)
-        */
+    Creating a class with static methods for order management
+    Add a help command (which displays the possible commands)
+    Adding a command to exit the application
+    Display the list of commands if the typed command is invalid
+    All code elements and comments are in English Project documentation in code (JavaDoc)
+    Realization of a class diagram of the application
+    Archiving under Git of the deliverable of the story (code + class diagram)
+ */
 
     // this method is to list the menu:
     public static void help() {
         System.out.println("MENU : ");
-        System.out.println("Step 1 to create your character."); // creer et afficher un personnage
+        System.out.println("Step 1 to create a default character."); // create and display a character
         System.out.println("Step 2 to display characters.");
         System.out.println("Step 3 to choice a character for list his details. ");
         System.out.println("Step 4 to start fight between 2 characters");
+        System.out.println("step 5 to remove a character.");
+        System.out.println("step 6 to create a Warrior.");
+        System.out.println("step 7 to create a Wizard.");
+        System.out.println("step 8 to create a Thief.");
         System.out.println("Step 9 to exit the game. ");
         System.out.println("Step 0 for help ....");
 
@@ -38,6 +42,9 @@ public class Order {
         // instancier le scanner
         // lire la ligne de l'user
 
+        // test the value entered by the user
+        // if it is correct we return the value (int)
+        // if it is incorrect we return -1
         System.out.println("Entrez une commande : ");
         Scanner sc = new Scanner(System.in);
 
@@ -54,18 +61,12 @@ public class Order {
             choice = -1;
         }
         return choice;
-
-        // tester la valeur entree par le user
-        // si elle est correcte on renvoie la valeur (int)
-        // si elle est incorrecte on renvoie -1
     }
 
 
-
-    // ici une méthode pour la creation d'un personnage avec les carecaristique par défaut
+    // create a method to create a character with the default characteristics
     public static Character createCharacter () {
         // enter and get the 4 "stats"
-
         //  enter and get the name of the character
         System.out.println("Enter the name of your character : ");
         Scanner sc = new Scanner(System.in);
@@ -97,21 +98,7 @@ public class Order {
         return characterPlayer;
     }
 
-
-
-    /* ici creer une liste pour stocker les personnages créés
-    public static List<Character> ListCharacterPlayer (){
-        List<Character> listCP;
-        listCP = new ArrayList<>();
-
-        listCP.add( Order.createCharacter());
-        return listCP;
-    }
-    */
-
-
-
-    // ici creer une méthode pour afficher tous les personnage créés(numéros des personnages affichés.
+    // create a method to display all characters created
     public static void displayAllCharacters (List<Character> listCP){
 
         int i;
@@ -119,6 +106,14 @@ public class Order {
             System.out.println("Index of the character : " + i);
             System.out.println(listCP.get(i));
         }
+        /*
+        another way to scroll through the list to display all items in the list
+
+        for( Character c : listCharacter ){
+            System.out.println(c);
+        }
+        */
+
     }
 
 
@@ -126,10 +121,104 @@ public class Order {
         System.out.println("enter the index of your character : ");
         int ch = getUserChoice();
         System.out.println(listCP.get(ch));
-
     }
 
-    // ici une fonction pour faire fonctionner différents commandes
+
+    public static void removeOneCharacter (List<Character> listCP){
+        System.out.println("enter the index of your character : ");
+        int ch = getUserChoice();
+        System.out.println("Are you sure that you wants to delete this character? Step 1 to confirm. ");
+        int yn = getUserChoice();
+        if (yn == 1) {
+            // remove object Character at index ch and retrieve this object from method return
+            Character removedCharacter = listCP.remove(ch);
+            System.out.println( "The character named " + removedCharacter.getName() + " from class " + removedCharacter.getClass().getSimpleName() + " has been removed ^^" );
+        }
+    }
+
+
+    static public Warrior createWarrior (){
+        System.out.println("Enter the name of your warrior : ");
+        Scanner sc = new Scanner(System.in);
+        String nameCharacter = sc.next();
+
+        // enter and get the HP value of the character
+        System.out.println("Enter the healpoint of your warrior : ");
+        Scanner scan = new Scanner(System.in);
+        String healPointCharacter = scan.next();
+        int hpCharacter = Integer.parseInt(healPointCharacter);
+
+        // get the power value
+        System.out.println("Enter the power of your warrior : ");
+        Scanner sca = new Scanner(System.in);
+        String powerCharacter = sca.next();
+        int pcCharacter = Integer.parseInt(powerCharacter);
+
+
+        // get the initiative (turn order)
+        System.out.println("Enter the initiative of your warrior : ");
+        Scanner scann = new Scanner(System.in);
+        String initiativeCharacter = scann.next();
+        int iniCharacter = Integer.parseInt(initiativeCharacter);
+
+        System.out.println("Enter the shield value of your warrior : ");
+        Scanner scanS = new Scanner(System.in);
+        String shieldCharacter = scann.next();
+        int shieldWarrior = Integer.parseInt(shieldCharacter);
+
+        Warrior createWarrior = new Warrior(nameCharacter, pcCharacter, hpCharacter, iniCharacter, shieldWarrior);
+        System.out.println("Your warrior has been created with success!");
+
+        return createWarrior;
+    }
+
+    static public Wizard createWizard (){
+        System.out.println("Enter the name of your wizard : ");
+        Scanner sc = new Scanner(System.in);
+        String nameCharacter = sc.next();
+
+        // enter and get the HP value of the character
+        System.out.println("Enter the healpoint of your wizard : ");
+        Scanner scan = new Scanner(System.in);
+        String healPointCharacter = scan.next();
+        int hpCharacter = Integer.parseInt(healPointCharacter);
+
+        // get the power value
+        System.out.println("Enter the power of your wizard : ");
+        Scanner sca = new Scanner(System.in);
+        String powerCharacter = sca.next();
+        int pcCharacter = Integer.parseInt(powerCharacter);
+
+
+        // get the initiative (turn order)
+        System.out.println("Enter the initiative of your wizard : ");
+        Scanner scann = new Scanner(System.in);
+        String initiativeCharacter = scann.next();
+        int iniCharacter = Integer.parseInt(initiativeCharacter);
+
+        System.out.println("Enter the wizard damage value of your wizard : ");
+        Scanner scanS = new Scanner(System.in);
+        String wizardDamage = scann.next();
+        int wiz = Integer.parseInt(wizardDamage);
+
+        Wizard createWizard = new Wizard(nameCharacter, pcCharacter, hpCharacter, iniCharacter, wiz);
+        System.out.println("Your wizard has been created with success!");
+
+        return createWizard;
+    }
+
+    // Methode Fight qui prend 2 characters en parametre
+    // regarder qui a la plus grande initiative
+    // c'est lui qui commence a taper : getDamage de celui qui tape et tu appliques cette valeur dans le hurt de l'autre
+    // ensuite on verifie que personne est mort sinon afficher un message
+    // on change l'attaquant et le defenseur
+    // et on recommence
+    //chaque attack on affiche les détails de combat
+
+
+
+
+    // here a function to make different commands work
     public static void processCmd(int cmdNumber, List<Character> listCP){
 
         if(cmdNumber == 0){
@@ -139,7 +228,6 @@ public class Order {
             listCP.add(Order.createCharacter());
         }
         if(cmdNumber == 2){
-            // display characters
             Order.displayAllCharacters (listCP);
         }
         if (cmdNumber ==3){
@@ -148,8 +236,14 @@ public class Order {
         if (cmdNumber ==4){
             // fight
         }
-
+        if (cmdNumber == 5){
+           Order.removeOneCharacter(listCP);
+        }
+        if (cmdNumber == 6){
+            listCP.add( Order.createWarrior() );
+        }
+        if (cmdNumber == 7){
+            listCP.add(Order.createWizard());
+        }
     }
-
-
 }
