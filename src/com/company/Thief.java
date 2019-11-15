@@ -46,7 +46,7 @@ public class Thief extends Character{
             criticalDamage = super.getDamage() * 2;
         }
         else {
-            criticalDamage = super.getDamage();:
+            criticalDamage = super.getDamage();
         }
         return criticalDamage;
     }

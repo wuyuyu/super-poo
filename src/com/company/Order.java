@@ -207,18 +207,70 @@ public class Order {
         return createWizard;
     }
 
-    // Methode Fight qui prend 2 characters en parametre
-    // regarder qui a la plus grande initiative
+       static public Thief createThief () {
+           System.out.println("Enter the name of your thief : ");
+           Scanner sc = new Scanner(System.in);
+           String nameCharacter = sc.next();
+
+           // enter and get the HP value of the character
+           System.out.println("Enter the healpoint of your thief : ");
+           Scanner scan = new Scanner(System.in);
+           String healPointCharacter = scan.next();
+           int hpCharacter = Integer.parseInt(healPointCharacter);
+
+           // get the power value
+           System.out.println("Enter the power of your thief : ");
+           Scanner sca = new Scanner(System.in);
+           String powerCharacter = sca.next();
+           int pcCharacter = Integer.parseInt(powerCharacter);
+
+
+           // get the initiative (turn order)
+           System.out.println("Enter the initiative of your thief : ");
+           Scanner scann = new Scanner(System.in);
+           String initiativeCharacter = scann.next();
+           int iniCharacter = Integer.parseInt(initiativeCharacter);
+
+           System.out.println("Enter the critical hit probability of your thief : ");
+           Scanner scanS = new Scanner(System.in);
+           String criticalDamage = scann.next();
+           int ccDmg = Integer.parseInt(criticalDamage);
+
+           Thief createThief = new Thief(nameCharacter, pcCharacter, hpCharacter, iniCharacter, ccDmg);
+           System.out.println("Your thief has been created with success!");
+
+           return createThief;
+
+       }
+
+    // Methode Fight qui prend 2 characters en parametre => ok
+    // regarder qui a la plus grande initiative =>
     // c'est lui qui commence a taper : getDamage de celui qui tape et tu appliques cette valeur dans le hurt de l'autre
     // ensuite on verifie que personne est mort sinon afficher un message
     // on change l'attaquant et le defenseur
     // et on recommence
     //chaque attack on affiche les détails de combat
 
+    public static void fight (Character fighter_1, Character fighter_2) {
 
+        System.out.println("Player 1: please enter the index of your first fighter: ");
+        Scanner f1 = new Scanner((System.in));
+        int fi1 = Integer.parseInt(String.valueOf(f1));
+
+        System.out.println("Player 2: please enter the index of your first fighter: ");
+        Scanner f2 = new Scanner((System.in));
+        int fi2 = Integer.parseInt(String.valueOf(f2));
+
+
+
+            Character.getInitiative();
+            Character.getInitiative();
+
+    }
 
 
     // here a function to make different commands work
+
     public static void processCmd(int cmdNumber, List<Character> listCP){
 
         if(cmdNumber == 0){
@@ -234,7 +286,7 @@ public class Order {
             Order.displayOneCharacter(listCP);
         }
         if (cmdNumber ==4){
-            // fight
+            Order.fight(                   );
         }
         if (cmdNumber == 5){
            Order.removeOneCharacter(listCP);
@@ -244,6 +296,9 @@ public class Order {
         }
         if (cmdNumber == 7){
             listCP.add(Order.createWizard());
+        }
+        if (cmdNumber == 8){
+            listCP.add(Order.createThief());
         }
     }
 }
