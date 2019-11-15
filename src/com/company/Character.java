@@ -57,6 +57,10 @@ public class Character {
         return this.name;
     }
 
+    public boolean getIsAlive(){
+        return this.isAlive();
+    }
+
     // The class overrides the toString method used in Java to display character information
     public String toString() {
         return "Name: " + this.name + ", HP:" +this.healPoint + ", initiative:"  +this.initiative+ ", Damage:"+ this.damage;

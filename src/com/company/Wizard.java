@@ -3,6 +3,7 @@ package com.company;
 public class Wizard extends Character {
 
     private int wizardDamage;
+    // manque de propriéte
 
     public Wizard(String n, int d, int hp, int init, int wd) {
         super(n, d, hp, init);

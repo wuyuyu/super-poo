@@ -1,6 +1,8 @@
 package com.company;
 
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,7 +12,7 @@ public class Order {
 
 
 
-/*
+/**
     Creating a class with static methods for order management
     Add a help command (which displays the possible commands)
     Adding a command to exit the application
@@ -243,7 +245,7 @@ public class Order {
 
        }
 
-    // Methode Fight qui prend 2 characters en parametre => ok
+
     // regarder qui a la plus grande initiative =>
     // c'est lui qui commence a taper : getDamage de celui qui tape et tu appliques cette valeur dans le hurt de l'autre
     // ensuite on verifie que personne est mort sinon afficher un message
@@ -251,20 +253,60 @@ public class Order {
     // et on recommence
     //chaque attack on affiche les détails de combat
 
-    public static void fight (Character fighter_1, Character fighter_2) {
+    public static void fight (List<Character> listCP) {
 
         System.out.println("Player 1: please enter the index of your first fighter: ");
-        Scanner f1 = new Scanner((System.in));
-        int fi1 = Integer.parseInt(String.valueOf(f1));
+        Scanner sc = new Scanner((System.in));
+        int fi1 = sc.nextInt();
 
         System.out.println("Player 2: please enter the index of your first fighter: ");
-        Scanner f2 = new Scanner((System.in));
-        int fi2 = Integer.parseInt(String.valueOf(f2));
+        int fi2 = sc.nextInt();
+
+        Character player1 = listCP.get(fi1);
+        Character player2 = listCP.get(fi2);
+
+        int player1RealHP = player1.getHealPoint();
+        int player2RealHP = player2.getHealPoint();
+
+        do{
+
+
+            if (player1.getInitiative() > player2.getInitiative()) {
+
+
+                player2.hurtCharacter( player1.getDamage() );
+
+                if (player2.getHealPoint() > 0) {
+                    player1.hurtCharacter( player2.getDamage() );
+                } else {
+                    System.out.println(player1.getName() + " win!!");
+                    System.out.println(player2.getName() + "lose!!");
+                }
+
+            }
+
+
+            else {
+                player1.hurtCharacter( player2.getDamage() );
+
+                if (player1.getHealPoint()>0) {
+
+                    player2.hurtCharacter( player1.getDamage() );
+
+                }
+
+                else {
+                    System.out.println(player2.getName() + " win!!");
+                    System.out.println(player1.getName() + "lose!!");
+                }
+
+            }
+
+
+        } while ( player2.getIsAlive() && player1.getIsAlive() );
 
 
 
-            Character.getInitiative();
-            Character.getInitiative();
 
     }
 
@@ -286,7 +328,7 @@ public class Order {
             Order.displayOneCharacter(listCP);
         }
         if (cmdNumber ==4){
-            Order.fight(                   );
+            Order.fight(listCP);
         }
         if (cmdNumber == 5){
            Order.removeOneCharacter(listCP);
